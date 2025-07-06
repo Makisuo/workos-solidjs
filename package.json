@@ -1,0 +1,41 @@
+{
+  "name": "@workos-inc/authkit-solidjs",
+  "version": "0.1.0",
+  "description": "AuthKit SolidJS SDK",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workos/authkit-solidjs.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.6",
+    "@types/bun": "latest",
+    "esbuild-plugin-solid": "^0.6.0",
+    "prettier": "^3.4.1",
+    "solid-js": "^1.8.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.0"
+  },
+  "dependencies": {
+    "@workos-inc/authkit-js": "0.13.0"
+  }
+}
