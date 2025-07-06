@@ -17,10 +17,11 @@ render(
 				import.meta.env.VITE_WORKOS_CLIENT_ID ||
 				"client_01HGZR2CV5G9VPBYK6XFA8YG17"
 			}
-			redirectUri={
-				import.meta.env.VITE_WORKOS_REDIRECT_URI ||
-				"http://localhost:3000/callback"
-			}
+			onRedirectCallback={({ state }) => {
+				if (state?.returnTo) {
+					console.log("Redirect to", state.returnTo);
+				}
+			}}
 		>
 			<App />
 		</AuthKitProvider>

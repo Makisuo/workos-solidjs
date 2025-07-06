@@ -6,7 +6,7 @@ import {
 } from "@workos-inc/authkit-js";
 import { createEffect, createSignal, type JSX, onCleanup } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
-import { AuthKitContext } from "./context";
+import { AuthKitContext, type ContextValue } from "./context";
 import { initialState, type State } from "./state";
 import type { Client, CreateClientOptions } from "./types";
 
@@ -18,6 +18,10 @@ interface AuthKitProviderProps extends CreateClientOptions {
 export function AuthKitProvider(props: AuthKitProviderProps) {
 	const [client, setClient] = createSignal<Client>(NOOP_CLIENT);
 	const [state, setState] = createStore<State>(initialState);
+	const [contextValue, setContextValue] = createStore<ContextValue>({
+		...NOOP_CLIENT,
+		...initialState,
+	});
 
 	const handleRefresh = (response: OnRefreshResponse) => {
 		const { user, accessToken, organizationId } = response;
@@ -40,6 +44,14 @@ export function AuthKitProvider(props: AuthKitProviderProps) {
 
 		props.onRefresh?.(response);
 	};
+
+	// Keep context value in sync with client and state
+	createEffect(() => {
+		setContextValue({
+			...client(),
+			...state,
+		});
+	});
 
 	createEffect(() => {
 		let timeoutId: NodeJS.Timeout;
@@ -83,13 +95,8 @@ export function AuthKitProvider(props: AuthKitProviderProps) {
 		});
 	});
 
-	const contextValue = () => ({
-		...client(),
-		...state,
-	});
-
 	return (
-		<AuthKitContext.Provider value={contextValue()}>
+		<AuthKitContext.Provider value={contextValue}>
 			{props.children}
 		</AuthKitContext.Provider>
 	);

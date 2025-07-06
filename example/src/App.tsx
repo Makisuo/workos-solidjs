@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
 	const auth = useAuth();
-	const [organizationId, setOrganizationId] = createSignal("");
+	const [_organizationId, setOrganizationId] = createSignal("");
 
 	const handleSignIn = async () => {
 		await auth.signIn();
@@ -19,7 +19,7 @@ function App() {
 	};
 
 	const handleSwitchOrganization = async () => {
-		const orgId = organizationId();
+		const orgId = auth.organizationId;
 		if (orgId) {
 			await auth.switchToOrganization({ organizationId: orgId });
 		}
@@ -97,7 +97,7 @@ function App() {
 							<input
 								type="text"
 								placeholder="Organization ID"
-								value={organizationId()}
+								value={auth.organizationId || undefined}
 								onInput={(e) => setOrganizationId(e.currentTarget.value)}
 							/>
 							<button onClick={handleSwitchOrganization}>Switch</button>
