@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 import { solidPlugin } from 'esbuild-plugin-solid';
 
 export default defineConfig({
