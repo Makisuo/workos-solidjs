@@ -1,5 +1,5 @@
 {
-  "name": "@workos-inc/authkit-solidjs",
+  "name": "authkit-solidjs",
   "version": "0.1.0",
   "description": "AuthKit SolidJS SDK",
   "main": "./dist/index.js",
