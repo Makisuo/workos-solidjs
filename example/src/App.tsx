@@ -1,4 +1,4 @@
-import { useAuth } from "@workos-inc/authkit-solidjs";
+import { useAuth } from "authkit-solidjs";
 import { createSignal, Show } from "solid-js";
 import "./App.css";
 

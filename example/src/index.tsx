@@ -1,4 +1,4 @@
-import { AuthKitProvider } from "@workos-inc/authkit-solidjs";
+import { AuthKitProvider } from "authkit-solidjs";
 import { render } from "solid-js/web";
 import App from "./App";
 

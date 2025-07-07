@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "solid-js": "^1.8.0",
-    "@workos-inc/authkit-solidjs": "file:.."
+    "authkit-solidjs": "file:.."
   }
 }

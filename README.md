@@ -5,11 +5,11 @@ A SolidJS SDK for WorkOS AuthKit, providing authentication and session managemen
 ## Installation
 
 ```bash
-npm install @workos-inc/authkit-solidjs
+npm install authkit-solidjs
 # or
-yarn add @workos-inc/authkit-solidjs
+yarn add authkit-solidjs
 # or
-bun add @workos-inc/authkit-solidjs
+bun add authkit-solidjs
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ bun add @workos-inc/authkit-solidjs
 
 ```tsx
 import { render } from 'solid-js/web';
-import { AuthKitProvider } from '@workos-inc/authkit-solidjs';
+import { AuthKitProvider } from 'authkit-solidjs';
 import App from './App';
 
 render(
@@ -38,7 +38,7 @@ render(
 
 ```tsx
 import { Show } from 'solid-js';
-import { useAuth } from '@workos-inc/authkit-solidjs';
+import { useAuth } from 'authkit-solidjs';
 
 function Profile() {
   const auth = useAuth();
