@@ -1,15 +1,15 @@
-import { createClient } from "@workos-inc/authkit-js";
+import type { createClient } from "@workos-inc/authkit-js";
 
 export type Client = Pick<
-  Awaited<ReturnType<typeof createClient>>,
-  | "signIn"
-  | "signUp"
-  | "getUser"
-  | "getAccessToken"
-  | "signOut"
-  | "switchToOrganization"
+	Awaited<ReturnType<typeof createClient>>,
+	| "signIn"
+	| "signUp"
+	| "getUser"
+	| "getAccessToken"
+	| "signOut"
+	| "switchToOrganization"
 >;
 
 export type CreateClientOptions = NonNullable<
-  Parameters<typeof createClient>[1]
+	Parameters<typeof createClient>[1]
 >;
