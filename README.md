@@ -124,8 +124,8 @@ bun run build
 # Run type checking
 bun run typecheck
 
-# Format code
-bun run format
+# Run tests
+bun run test
 ```
 
 ## License

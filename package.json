@@ -8,10 +8,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "solid": "./dist/index.mjs",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
   },
+  "sideEffects": false,
   "files": [
     "dist",
     "src",
@@ -21,7 +23,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -30,11 +33,16 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
+    "@solidjs/testing-library": "^0.8.10",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@vitest/ui": "^3.2.4",
     "esbuild-plugin-solid": "^0.6.0",
     "solid-js": "^1.9.7",
     "tsdown": "^0.12.9",
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite-plugin-solid": "^2.11.7",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "solid-js": ">=1.8.0"
